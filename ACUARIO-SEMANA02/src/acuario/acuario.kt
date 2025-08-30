@@ -9,7 +9,15 @@ open class acuario(
 ) {
     open val forma = "rectángulo"
 
-    
+    open var volumen: Int
+        get() = ancho * alto * largo / 1000  // 1000 cm^3 = 1 l
+        set(valor) {
+            alto = (valor * 1000) / (ancho * largo)
+        }
+
+    open var agua: Double
+        get() = volumen * 0.9
+        set(_) {}
 
     init {
         println("inicializando acuario")
